@@ -16,9 +16,9 @@ public class Main {
 		//int numeroInteiro = 0;
 		//numeroInteiro = input.nextInt()
 		
-		Pessoa fulano = new Pessoa("fulano");
+		//Pessoa fulano = new Pessoa("fulano");
 		//fulano.nome ="fulano";
-		fulano.cpf = 1234567891;
+		//fulano.cpf = 1234567891;
 		
 		
 		Aluno aluno1 = new Aluno("cleiton" ,123 );
@@ -30,6 +30,7 @@ public class Main {
 		//funcionario.nome ="dani";
 		
 		Professor prof = new Professor("denis");
+		//System.out.println(fulano.toString());
 		prof.cpf = 556464646;
 		//prof.nome = "denis";
 		prof.salario = 1;
@@ -40,7 +41,7 @@ public class Main {
 		faxineiro.turno = "Noturno";
 		
 		ArrayList<Pessoa> listaDaEscola = new ArrayList<>();
-		listaDaEscola.add(fulano);
+		//listaDaEscola.add(fulano);
 		listaDaEscola.add(prof);
 		listaDaEscola.add(aluno1);
 		listaDaEscola.add(funcionario);
