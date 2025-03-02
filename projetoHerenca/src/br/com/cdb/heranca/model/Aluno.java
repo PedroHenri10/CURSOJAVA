@@ -7,4 +7,10 @@ public class Aluno extends Pessoa{
 		super(nome);
 		this.matricula = matricula;
 	}
+	
+	@Override
+	public void apresentacao() {
+		System.out.println("Olá, eu sou o aluno "+nome+ " e minha matricula é "+matricula);
+	}
+	
 }

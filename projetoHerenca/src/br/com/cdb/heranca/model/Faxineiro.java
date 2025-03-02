@@ -6,4 +6,9 @@ public class Faxineiro extends Funcionario{
 	public Faxineiro(String nome) {
 		super(nome);
 	}
+	
+	@Override
+	public void apresentacao() {
+		System.out.println("Olá, eu sou o faxineiro "+nome);
+	}
 }

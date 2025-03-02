@@ -7,4 +7,9 @@ public class Funcionario extends Pessoa{
 	public Funcionario(String nome) {
 		super(nome);
 	}
+	
+	@Override
+	public void apresentacao() {
+		System.out.println("Olá, eu sou o funcionario "+nome);
+	}
 }
