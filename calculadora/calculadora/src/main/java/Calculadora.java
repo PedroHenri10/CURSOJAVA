@@ -9,10 +9,6 @@
  */
 public class Calculadora extends javax.swing.JFrame {
 
-    
-    double valor1, valor2;
-    String operacao;
-    
     /**
      * Creates new form Calculadora
      */
@@ -48,7 +44,6 @@ public class Calculadora extends javax.swing.JFrame {
         btnDiv = new javax.swing.JButton();
         btnDecimal = new javax.swing.JButton();
         resultado = new javax.swing.JButton();
-        lblValor1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -79,6 +74,7 @@ public class Calculadora extends javax.swing.JFrame {
         });
 
         btn2.setText("2");
+        btn2.setActionCommand("2");
         btn2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn2ActionPerformed(evt);
@@ -176,8 +172,6 @@ public class Calculadora extends javax.swing.JFrame {
             }
         });
 
-        lblValor1.setText("jLabel1");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -225,17 +219,11 @@ public class Calculadora extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnSub, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(117, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblValor1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(129, 129, 129))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblValor1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(28, 28, 28)
                 .addComponent(txtresultado, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -284,46 +272,11 @@ public class Calculadora extends javax.swing.JFrame {
     }//GEN-LAST:event_btnDecimalActionPerformed
 
     private void resultadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resultadoActionPerformed
-        valor2 = Double.parseDouble(txtresultado.getText());
-    double res = 0;
-
-    switch (operacao) {
-        case "+":
-            res = valor1 + valor2;
-            break;
-        case "-":
-            res = valor1 - valor2;
-            break;
-        case "x":
-            res = valor1 * valor2;
-            break;
-        case "/":
-            if (valor2 != 0) {
-                res = valor1 / valor2;
-            } else {
-                txtresultado.setText("Erro: divisão por 0");
-                return;
-            }
-            break;
-        default:
-            txtresultado.setText("Erro: operação inválida");
-            return;
-    }
-
-    txtresultado.setText(String.valueOf(res));
-    lblValor1.setText(""); 
-     }
-
-        txtresultado.setText(String.valueOf(res));
-        lblValor1.setText(""); 
+             txtresultado.setText(txtresultado.getText()+"=");
     }//GEN-LAST:event_resultadoActionPerformed
 
     private void btnSomaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSomaActionPerformed
-    valor1 = Double.parseDouble(txtresultado.getText());
-        operacao = "+";
-        lblValor1.setText(txtresultado.getText() + "+");
-        
-        txtresultado.setText("");
+        txtresultado.setText(txtresultado.getText()+"+");
     }//GEN-LAST:event_btnSomaActionPerformed
 
     private void btn3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn3ActionPerformed
@@ -339,11 +292,7 @@ public class Calculadora extends javax.swing.JFrame {
     }//GEN-LAST:event_btn1ActionPerformed
 
     private void btnSubActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubActionPerformed
-        valor1 = Double.parseDouble(txtresultado.getText());
-        operacao = "-";
-        lblValor1.setText(txtresultado.getText() + "-");
-        
-        txtresultado.setText("");
+        txtresultado.setText(txtresultado.getText()+"-");
     }//GEN-LAST:event_btnSubActionPerformed
 
     private void btn6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn6ActionPerformed
@@ -359,11 +308,7 @@ public class Calculadora extends javax.swing.JFrame {
     }//GEN-LAST:event_btn4ActionPerformed
 
     private void btnDivActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDivActionPerformed
-        valor1 = Double.parseDouble(txtresultado.getText());
-        operacao = "/";
-        lblValor1.setText(txtresultado.getText() + "/");
-        
-        txtresultado.setText("");
+        txtresultado.setText(txtresultado.getText()+"/");
     }//GEN-LAST:event_btnDivActionPerformed
 
     private void btn9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn9ActionPerformed
@@ -379,11 +324,7 @@ public class Calculadora extends javax.swing.JFrame {
     }//GEN-LAST:event_btn7ActionPerformed
 
     private void btnMultActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMultActionPerformed
-        valor1 = Double.parseDouble(txtresultado.getText());
-        operacao = "x";
-        lblValor1.setText(txtresultado.getText() + "x");
-        
-        txtresultado.setText("");
+        txtresultado.setText(txtresultado.getText()+"*");
     }//GEN-LAST:event_btnMultActionPerformed
 
     /**
@@ -439,7 +380,6 @@ public class Calculadora extends javax.swing.JFrame {
     private javax.swing.JButton btnSub;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JLabel lblValor1;
     private javax.swing.JButton resultado;
     private javax.swing.JTextField txtresultado;
     // End of variables declaration//GEN-END:variables
