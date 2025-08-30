@@ -56,6 +56,16 @@ public class Sudoku {
                     tile.setFont(new Font("Arial", Font.PLAIN, 20));
                     tile.setBackground(Color.white);
                 }
+                if((r == 2 && c ==2) || (r == 2 && c == 5) || (r == 5 && c == 2) || (r == 5 && c ==5)){
+                    tile.setBorder(BorderFactory.createMatteBorder(1,1,5,5, Color.BLACK));
+                }else if(r == 2 || r ==5){
+                    tile.setBorder(BorderFactory.createMatteBorder(1,1,5,1, Color.BLACK));
+                }else if (c ==2 || c ==5){
+                    tile.setBorder(BorderFactory.createMatteBorder(1,1,1,5, Color.BLACK));
+                }else{
+                    tile.setBorder(BorderFactory.createLineBorder(Color.BLACK));    
+                }
+
                 tile.setFocusable(false);
                 boardPanel.add(tile);
             }
