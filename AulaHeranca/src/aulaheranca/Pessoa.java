@@ -19,6 +19,7 @@ public class Pessoa {
     int idade;
     float altura;
     float peso;
+    Veiculo veiculoComprado;
     
     //metodo constructor de objeto em memoria
     
@@ -34,6 +35,9 @@ public class Pessoa {
     public void exibirDadosPessoa(){
         System.out.println("Nome: " + nome + " | idade: "+ idade + " | altura: " +altura+ " | Peso: "+ peso);
         System.err.println("IMC: " + calcularIMC()+ " | " + classificarIMC());
+        if(veiculoComprado != null){
+            System.out.println("Veiculo comprado: " + veiculoComprado.getMarca() + " " + veiculoComprado.getModelo());
+        }
     }
     
     //metodo comum para calcular o imc de uma Pessoa 
@@ -78,6 +82,7 @@ public class Pessoa {
         msg = msg + "\npeso "+this.peso;
         msg = msg + "\naltura "+this.altura;
         msg = msg + "\nIMC: "+ calcularIMC()+ " " + classificarIMC();
+        msg = msg + "\nVeiculo comprado: " + veiculoComprado.getMarca() + " " + veiculoComprado.getModelo();
         JOptionPane.showMessageDialog(null, msg, "Dados Pessoais", -1);
     }
 
@@ -97,6 +102,12 @@ public class Pessoa {
         return peso;
     }
     
-    
+    public Veiculo getVeiculoComprado(){
+        return veiculoComprado;
+    }
 
+    public void setVeiculoComprado(Veiculo veiculoComprado) {
+        this.veiculoComprado = veiculoComprado;
+    }
+    
 }

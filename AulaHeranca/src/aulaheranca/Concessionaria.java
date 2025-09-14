@@ -44,43 +44,62 @@ public class Concessionaria {
         c5.exibirDadosVeiculo();
         ca1.exibirDadosVeiculo();
         ca2.exibirDadosVeiculo();
-
+        
+        Carro c8 = new Carro();
+        c8.exibirDadosCarroGUI();
+        Caminhao ca3 = new Caminhao();
+        ca3.exibirDadosCaminhaoGUI();
+        
+        Veiculo[] veiculos = {
+            carro, c2, c3, c4, c5, ca1, ca2,c8,ca3
+        };
+        
         String[] colunas = {"Tipo", "Marca", "Modelo", "Cor", "Ano", "Preço"};
         DefaultTableModel modeloTabela = new DefaultTableModel(colunas, 0);
 
-        modeloTabela.addRow(new Object[]{"Carro", carro.getMarca(), carro.getModelo(), carro.getCor(), carro.getAno(), carro.getValor()});
-        modeloTabela.addRow(new Object[]{"Carro", c2.getMarca(), c2.getModelo(), c2.getCor(), c2.getAno(), c2.getValor()});
-        modeloTabela.addRow(new Object[]{"Carro", c3.getMarca(), c3.getModelo(), c3.getCor(), c3.getAno(), c3.getValor()});
-        modeloTabela.addRow(new Object[]{"Carro", c4.getMarca(), c4.getModelo(), c4.getCor(), c4.getAno(), c4.getValor()});
-        modeloTabela.addRow(new Object[]{"Carro", c5.getMarca(), c5.getModelo(), c5.getCor(), c5.getAno(), c5.getValor()});
+        for (Veiculo v : veiculos) {
+            String tipo = (v instanceof Carro) ? "Carro" : "Caminhão";
+            modeloTabela.addRow(new Object[]{
+                tipo, v.getMarca(), v.getModelo(), v.getCor(), v.getAno(), v.getValor()
+            });
+        }
 
-        modeloTabela.addRow(new Object[]{"Caminhão", ca1.getMarca(), ca1.getModelo(), ca1.getCor(), ca1.getAno(), ca1.getValor()});
-        modeloTabela.addRow(new Object[]{"Caminhão", ca2.getMarca(), ca2.getModelo(), ca2.getCor(), ca2.getAno(), ca2.getValor()});
-
-       Carro c8;
-       c8 = new Carro();
-       c8.exibirDadosCarroGUI();
-       Caminhao ca3;
-       ca3 = new Caminhao();
-       ca3.exibirDadosCaminhaoGUI();
-       
-       modeloTabela.addRow(new Object[]{"Carro", c8.getMarca(), c8.getModelo(), c8.getCor(), c8.getAno(), c8.getValor()});
-        modeloTabela.addRow(new Object[]{"Caminhão", ca3.getMarca(), ca3.getModelo(), ca3.getCor(), ca3.getAno(), ca3.getValor()});
-        
         JTable tabela = new JTable(modeloTabela);
         JScrollPane scrollPane = new JScrollPane(tabela);
         JOptionPane.showMessageDialog(null, scrollPane, "Veículos disponíveis", JOptionPane.INFORMATION_MESSAGE);
 
         Pessoa p1 = new Pessoa();
-        p1.exibirDadosPessoa();
-        p1.exibirDadosPessoaGUI();
-
-        String[] opcoes = {"Mercedes CLA250", "BMW 320i", "Audi A3", "Toyota Corolla", "Honda Civic", "Volvo FH", "Scania R450"};
-        String escolha = (String) JOptionPane.showInputDialog(null, "Escolha um veículo para comprar:",
-                "Compra de Veículo", JOptionPane.QUESTION_MESSAGE, null, opcoes, opcoes[0]);
-
-        JOptionPane.showMessageDialog(null, p1.getNome() + " comprou o veículo: " + escolha + "\nCompra efetivada com sucesso!");
         
+        String[] opcoes = new String[veiculos.length];
+        for (int i = 0; i < veiculos.length; i++) {
+            opcoes[i] = veiculos[i].getMarca() + " " + veiculos[i].getModelo();
+        }
+
+        String escolha = (String) JOptionPane.showInputDialog(
+                null,
+                "Escolha um veículo para comprar:",
+                "Compra de Veículo",
+                JOptionPane.QUESTION_MESSAGE,
+                null,
+                opcoes,
+                opcoes[0]
+        );
+
+        for (Veiculo v : veiculos) {
+            if ((v.getMarca() + " " + v.getModelo()).equals(escolha)) {
+                p1.setVeiculoComprado(v); 
+                break;
+            }
+        }
+
+        JOptionPane.showMessageDialog(
+                null,
+                p1.getNome() + " comprou o veículo: " +
+                p1.getVeiculoComprado().getMarca() + " " +
+                p1.getVeiculoComprado().getModelo() +
+                "\nCompra efetivada com sucesso!"
+        );
+        p1.exibirDadosPessoaGUI();
     }
     
     
