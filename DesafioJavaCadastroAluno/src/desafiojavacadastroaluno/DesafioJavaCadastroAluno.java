@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 package desafiojavacadastroaluno;
+import desafiojavacadastroaluno.Pessoa;
+import desafiojavacadastroaluno.PessoaDAO;
 
 /**
  *
@@ -16,6 +18,13 @@ public class DesafioJavaCadastroAluno {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        Pessoa p = new Pessoa();
+        p.setNome("Ricardo");
+        p.setSexo("m");
+        p.setIdioma("Japones");
+        
+        PessoaDAO pDAO = new PessoaDAO();
+        pDAO.inserir(p);
     }
     
 }
