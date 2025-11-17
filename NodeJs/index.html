@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Testar funcoes de busca de CEP</h1>
+
+    <label  for="cep">Digite o cep</label>
+    <input type="text" id="cep" placeholder="Exemplo: 01001000">
+
+    <br><br>
+
+    <button onclick="buscarCEPv1()">Buscar CEP v1(Fetch)</button>
+    <button onclick="buscarCEPv2()">Buscar CEP v2(XMLHttpRequest)</button>
+
+    <div id ="resultado">
+        
+    </div>
+
+        <label  for="cep"> CEP: </label>
+        <input type="text" id="cepResults"><br>
+
+        <label  for="logadouro">Logadouro: </label>
+        <input type="text" id="logadouro"><br>
+        
+        <label  for="complemento">complemento: </label>
+        <input type="text" id="complemento"><br>
+
+        <label  for="unidade">Unidade: </label>
+        <input type="text" id="unidade"><br>
+
+        <label  for="bairro"> Bairro: </label>
+        <input type="text" id="bairro"><br>
+
+        <label  for="localidade">Localidade: </label>
+        <input type="text" id="localidade"><br>
+        
+        <label  for="uf">UF: </label>
+        <input type="text" id="uf"><br>
+
+        <label  for="estado">Estado: </label>
+        <input type="text" id="estado"><br>
+        
+        <label  for="regiao">Região: </label>
+        <input type="text" id="regiao"><br>
+
+
+    <script src="app.js"></script>
+</body>
+</html>
