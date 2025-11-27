@@ -42,10 +42,14 @@ public class Mercado {
         System.out.println("Cliente :" + v1.cliente);
         v1.listarProdutos();
         v1.valorPagar();
+        v1.removerProduto(p3);
+        v1.valorPagar();
         
         System.out.println("-------------------------------------");
         System.out.println("Cliente :" + v2.cliente);
         v2.listarProdutos();
+        v2.valorPagar();
+        v2.removerProduto(p5);
         v2.valorPagar();
         
         System.out.println("-------------------------------------");

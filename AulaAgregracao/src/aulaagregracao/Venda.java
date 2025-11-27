@@ -42,10 +42,11 @@ public class Venda {
         }
     }
     
-    float valorCompra = 0;
+    
             
     //total da compra
     public void valorPagar(){
+        float valorCompra = 0;
         for(Produto x: itens){
             valorCompra += x.valor;
         }
@@ -53,4 +54,9 @@ public class Venda {
         System.out.println("Valor da compra: " + valorCompra);
     }
     
+    //metodo para remover produto
+    public void removerProduto(Produto p){
+      itens.remove(p);
+      System.out.println("Item " + p.nome + " removido");
+    }
 }
