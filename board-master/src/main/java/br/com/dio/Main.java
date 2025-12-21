@@ -1,0 +1,24 @@
+package br.com.dio;
+
+import br.com.dio.persistence.migration.MigrationStrategy;
+import br.com.dio.ui.MainMenu;
+
+import java.sql.SQLException;
+
+import static br.com.dio.persistence.config.ConnectionConfig.getConnection;
+
+
+public class Main {
+
+    public static void main(String[] args) throws Exception {
+        try (var connection = getConnection()) {
+
+            var transactionHandler = new TransactionHandler(connection);
+
+            new MigrationStrategy(connection).executeMigration();
+
+            new MainMenu(connection, transactionHandler).execute();
+        }
+    }
+
+}
