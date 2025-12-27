@@ -1,0 +1,39 @@
+version: '3'
+services:
+  nginx:
+    build: .
+    ports:
+      - "4500:4500"
+    depends_on:
+      - php-app-1
+      - php-app-2
+
+  php-app-1:
+    image: php:7.4-apache
+    volumes:
+      - ./index.php:/var/www/html/index.php
+    environment:
+      - DB_HOST=db
+    networks:
+      - dio-network
+
+  php-app-2:
+    image: php:7.4-apache
+    volumes:
+      - ./index.php:/var/www/html/index.php
+    environment:
+      - DB_HOST=db
+    networks:
+      - dio-network
+
+  db:
+    image: mysql:5.7
+    environment:
+      - MYSQL_ROOT_PASSWORD=Senha123
+      - MYSQL_DATABASE=meubanco
+    networks:
+      - dio-network
+
+networks:
+  dio-network:
+    driver: bridge
