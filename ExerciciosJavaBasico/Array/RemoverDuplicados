@@ -1,0 +1,34 @@
+import java.util.Scanner;
+
+public class RemoverDuplicados {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+        int[] vetor = new int[10];
+
+        System.out.println("Digite 10 números:");
+
+        for (int i = 0; i < 10; i++) {
+            vetor[i] = sc.nextInt();
+        }
+
+        System.out.println("Valores sem repetição:");
+
+        for (int i = 0; i < 10; i++) {
+            boolean repetido = false;
+
+            for (int j = 0; j < i; j++) {
+                if (vetor[i] == vetor[j]) {
+                    repetido = true;
+                }
+            }
+
+            if (!repetido) {
+                System.out.print(vetor[i] + " ");
+            }
+        }
+
+        sc.close();
+    }
+}
