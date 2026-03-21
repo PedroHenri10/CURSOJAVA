@@ -1,0 +1,36 @@
+import java.util.Scanner;
+
+public class SomaWhile {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        int num;
+        int soma = 0;
+        int qtd = 0;
+
+        System.out.println("Digite números (0 para parar):");
+
+        num = sc.nextInt();
+
+        while (num != 0) {
+            soma += num;
+            qtd++;
+
+            num = sc.nextInt();
+        }
+
+        if (qtd > 0) {
+            double media = (double) soma / qtd;
+
+            System.out.println("Soma: " + soma);
+            System.out.println("Quantidade: " + qtd);
+            System.out.println("Média: " + media);
+        } else {
+            System.out.println("Nenhum número digitado.");
+        }
+
+        sc.close();
+    }
+}
