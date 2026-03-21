@@ -1,0 +1,35 @@
+import java.util.Scanner;
+
+public class Primo {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Digite um número: ");
+        int num = sc.nextInt();
+
+        int i = 2;
+        boolean primo = true;
+
+        while (i <= num / 2) {
+            if (num % i == 0) {
+                primo = false;
+                break;
+            }
+            i++;
+        }
+
+        if (num <= 1) {
+            primo = false;
+        }
+
+        if (primo) {
+            System.out.println("É primo");
+        } else {
+            System.out.println("Não é primo");
+        }
+
+        sc.close();
+    }
+}
