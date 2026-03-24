@@ -1,0 +1,23 @@
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
+import java.util.Scanner;
+
+public class DiferencaDias {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Data 1 (AAAA-MM-DD): ");
+        LocalDate d1 = LocalDate.parse(sc.nextLine());
+
+        System.out.print("Data 2 (AAAA-MM-DD): ");
+        LocalDate d2 = LocalDate.parse(sc.nextLine());
+
+        long dias = ChronoUnit.DAYS.between(d1, d2);
+
+        System.out.println("Diferença: " + Math.abs(dias) + " dias");
+
+        sc.close();
+    }
+}
