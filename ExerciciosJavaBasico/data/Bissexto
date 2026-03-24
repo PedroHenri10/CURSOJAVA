@@ -1,0 +1,21 @@
+import java.time.Year;
+import java.util.Scanner;
+
+public class Bissexto {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Digite o ano: ");
+        int ano = sc.nextInt();
+
+        if (Year.isLeap(ano)) {
+            System.out.println("Ano bissexto");
+        } else {
+            System.out.println("Não é bissexto");
+        }
+
+        sc.close();
+    }
+}
