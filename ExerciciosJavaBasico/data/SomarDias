@@ -1,0 +1,22 @@
+import java.time.LocalDate;
+import java.util.Scanner;
+
+public class SomarDias {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Data (AAAA-MM-DD): ");
+        LocalDate data = LocalDate.parse(sc.nextLine());
+
+        System.out.print("Quantos dias adicionar: ");
+        int dias = sc.nextInt();
+
+        LocalDate novaData = data.plusDays(dias);
+
+        System.out.println("Nova data: " + novaData);
+
+        sc.close();
+    }
+}
