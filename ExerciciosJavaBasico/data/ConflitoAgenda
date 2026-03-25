@@ -1,0 +1,32 @@
+import java.time.LocalDateTime;
+import java.util.Scanner;
+
+public class ConflitoAgenda {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Início evento 1 (AAAA-MM-DDTHH:MM): ");
+        LocalDateTime inicio1 = LocalDateTime.parse(sc.nextLine());
+
+        System.out.print("Fim evento 1: ");
+        LocalDateTime fim1 = LocalDateTime.parse(sc.nextLine());
+
+        System.out.print("Início evento 2: ");
+        LocalDateTime inicio2 = LocalDateTime.parse(sc.nextLine());
+
+        System.out.print("Fim evento 2: ");
+        LocalDateTime fim2 = LocalDateTime.parse(sc.nextLine());
+
+        boolean conflito = inicio1.isBefore(fim2) && inicio2.isBefore(fim1);
+
+        if (conflito) {
+            System.out.println("Há conflito de horários");
+        } else {
+            System.out.println("Sem conflito");
+        }
+
+        sc.close();
+    }
+}
