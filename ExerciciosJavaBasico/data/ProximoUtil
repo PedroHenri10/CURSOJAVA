@@ -1,0 +1,21 @@
+import java.time.LocalDate;
+import java.util.Scanner;
+
+public class ProximoUtil {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Data (AAAA-MM-DD): ");
+        LocalDate data = LocalDate.parse(sc.nextLine());
+
+        do {
+            data = data.plusDays(1);
+        } while (data.getDayOfWeek().getValue() >= 6);
+
+        System.out.println("Próximo dia útil: " + data);
+
+        sc.close();
+    }
+}
