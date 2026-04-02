@@ -1,0 +1,13 @@
+import java.util.*;
+
+public class UniaoSet {
+    public static void main(String[] args) {
+
+        Set<Integer> s1 = new HashSet<>(Arrays.asList(1, 2, 3));
+        Set<Integer> s2 = new HashSet<>(Arrays.asList(3, 4, 5));
+
+        s1.addAll(s2);
+
+        System.out.println(s1);
+    }
+}
