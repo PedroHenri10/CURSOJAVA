@@ -1,0 +1,11 @@
+import java.util.*;
+
+public class SubconjuntoSet {
+    public static void main(String[] args) {
+
+        Set<Integer> maior = new HashSet<>(Arrays.asList(1, 2, 3, 4));
+        Set<Integer> menor = new HashSet<>(Arrays.asList(2, 3));
+
+        System.out.println(maior.containsAll(menor));
+    }
+}
