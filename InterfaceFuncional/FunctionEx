@@ -1,0 +1,31 @@
+import java.util.*;
+import java.util.function.Function;
+
+class Produto {
+    String nome;
+    double preco;
+
+    public Produto(String nome, double preco) {
+        this.nome = nome;
+        this.preco = preco;
+    }
+}
+
+public class FunctionEx {
+
+    public static void main(String[] args) {
+
+        List<Produto> produtos = Arrays.asList(
+                new Produto("Mouse", 100),
+                new Produto("Teclado", 200)
+        );
+
+        Function<Produto, Double> aplicarDesconto =
+                p -> p.preco * 0.9;
+
+        for (Produto p : produtos) {
+            double novoPreco = aplicarDesconto.apply(p);
+            System.out.println(p.nome + ": " + novoPreco);
+        }
+    }
+}
