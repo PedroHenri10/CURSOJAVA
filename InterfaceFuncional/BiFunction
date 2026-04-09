@@ -1,0 +1,21 @@
+import java.util.function.BiFunction;
+
+public class BiFunctionEx {
+
+    public static void main(String[] args) {
+
+        BiFunction<Double, Double, Double> aplicarTaxa =
+                (preco, taxa) -> preco + (preco * taxa);
+
+        double valorComTaxa = aplicarTaxa.apply(100.0, 0.1);
+
+        System.out.println("Com taxa: " + valorComTaxa);
+
+        BiFunction<Double, Double, Double> aplicarDesconto =
+                (preco, desconto) -> preco - (preco * desconto);
+
+        double valorFinal = aplicarDesconto.apply(valorComTaxa, 0.05);
+
+        System.out.println("Valor final: " + valorFinal);
+    }
+}
