@@ -1,0 +1,15 @@
+import java.util.function.Supplier;
+import java.util.*;
+
+public class SupplierEx {
+
+    public static void main(String[] args) {
+
+        Supplier<Integer> gerarId =
+                () -> new Random().nextInt(1000);
+
+        for (int i = 0; i < 5; i++) {
+            System.out.println("ID gerado: " + gerarId.get());
+        }
+    }
+}
