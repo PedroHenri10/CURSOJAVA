@@ -1,6 +1,7 @@
 import java.util.*;
 import java.util.function.*;
 import java.util.stream.*;
+
 class Main {
     public static void main(String[] args) {
         List<String> nomes = Arrays.asList("Ana","Pedro","Jo","Carlos");
@@ -40,5 +41,11 @@ class Main {
        
        List<String> ordenarS = nomes.stream().sorted((a,b) -> a.length() - b.length()).collect(Collectors.toList());
        System.out.println(ordenarS);
+
+        List<Integer> listaNumeros2 = Arrays.asList( 15, 42, 10, 8, 99, 15, 23, 42, 7, 50, 10, 15, 88, 32, 7, 10, 60, 42, 99, 5 );
+        
+        List<Integer> topTresMaiores = listaNumeros2.stream().sorted(Comparator.reverseOrde
+        r()).limit(3).collect(Collectors.toList());
+        System.out.println(topTresMaiores);
     }
 }
