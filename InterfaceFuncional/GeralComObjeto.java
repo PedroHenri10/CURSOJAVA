@@ -21,7 +21,7 @@ class Pessoa {
     
 }
 
-class GeralComObjeto{
+class Main {
     public static void main(String[] args) {
         Predicate<Pessoa> maiorDeIdade = p -> p.getIdade() >=18;
         
@@ -42,7 +42,25 @@ class GeralComObjeto{
         System.out.println(maioresDeIdade);
         
         // ordenar por idade
+        List<Pessoa> ordenacaoporidade = lista.stream().sorted(Comparator.comparing(Pessoa::getIdade)).collect(Collectors.toList());
+        
+        ordenacaoporidade.forEach(System.out::println);
         
         //odernar por nome
+        List<Pessoa> ordenacaoPorNome = lista.stream().sorted(Comparator.comparing(Pessoa::getNome)).collect(Collectors.toList());
+        
+        ordenacaoPorNome.forEach(System.out::println);
+
+        List<Pessoa> ex13 = lista.stream().filter(p -> p.getIdade() >= 18).sorted(Comparator.comparing(Pessoa::getIdade)).collect(Collectors.toList());
+        System.out.println(ex13);
+        
+        List<String> ex14 = lista.stream().filter(p -> p.getIdade() >= 18).sorted(Comparator.comparing(Pessoa::getIdade)).map(p -> p.getNome()).collect(Collectors.toList());
+        System.out.println(ex14);
+        
+        lista.stream()
+     .filter(p -> p.getIdade() >= 18)
+     .sorted(Comparator.comparing(p -> p.getNome()))
+     .map(p -> p.getNome())
+     .forEach(System.out::println);
     }
 }
