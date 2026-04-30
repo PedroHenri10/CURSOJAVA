@@ -1,4 +1,4 @@
-import java.util.*;
+uhuuuuuuimport java.util.*;
 import java.util.function.*;
 import java.util.stream.*;
 
@@ -53,9 +53,9 @@ class Main {
         
         List<String> nomes2 = Arrays.asList("Ana", "Bia", "Jo", "Pedro", "Paula", "Carlos");
 
-        Map<Integer, List<String>> resultado= nomes2.stream().collect(Collectors.groupingBy(String:: length));
+        Map<Integer, List<String>> resultadooo= nomes2.stream().collect(Collectors.groupingBy(String:: length));
         
-        resultado.forEach((k, v) -> 
+        resultadooo.forEach((k, v) -> 
         System.out.println(k + " -> " + v));
 
     }
