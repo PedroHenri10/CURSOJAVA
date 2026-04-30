@@ -47,5 +47,16 @@ class Main {
         List<Integer> topTresMaiores = listaNumeros2.stream().sorted(Comparator.reverseOrde
         r()).limit(3).collect(Collectors.toList());
         System.out.println(topTresMaiores);
+
+        List<Integer> ordenarSemDuplicados = listaNumeros2.stream().sorted().distinct().collect(Collectors.toList());
+        System.out.println(ordenarSemDuplicados);
+        
+        List<String> nomes2 = Arrays.asList("Ana", "Bia", "Jo", "Pedro", "Paula", "Carlos");
+
+        Map<Integer, List<String>> resultado= nomes2.stream().collect(Collectors.groupingBy(String:: length));
+        
+        resultado.forEach((k, v) -> 
+        System.out.println(k + " -> " + v));
+
     }
 }
