@@ -62,5 +62,35 @@ public class Main {
         pessoas.stream()
                .sorted(Comparator.comparing(Pessoa::getIdade).reversed())
                .forEach(System.out::println);
+
+        System.out.println("13. >18 ordenado por nome:");
+        pessoas.stream()
+                .filter(p -> p.getIdade() != null && p.getIdade() > 18)
+                .sorted(Comparator.comparing(Pessoa::getNome))
+                .forEach(System.out::println);
+
+System.out.println("\n16. Idade DESC + Nome ASC:");
+        pessoas.stream()
+                .filter(p -> p.getIdade() != null)
+                .sorted(Comparator.comparing(Pessoa::getIdade)
+                                  .reversed()
+                                  .thenComparing(Pessoa::getNome))
+                .forEach(System.out::println);
+
+        System.out.println("\n17. Null primeiro:");
+        pessoas.stream()
+                .sorted(Comparator.comparing(
+                    Pessoa::getIdade,
+                    Comparator.nullsFirst(Integer::compareTo)
+                ))
+                .forEach(System.out::println);
+
+        System.out.println("\n17. Null por último:");
+        pessoas.stream()
+                .sorted(Comparator.comparing(
+                    Pessoa::getIdade,
+                    Comparator.nullsLast(Integer::compareTo)
+                ))
+                .forEach(System.out::println);
     }
 }
