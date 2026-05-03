@@ -56,5 +56,19 @@ public class OrdenacaoProduto {
                      p -> p.getNome().toLowerCase()
                  ))
                  .forEach(System.out::println);
+        
+        System.out.println("\n14. Produtos ordenados por preço (só nomes):");
+        produtos.stream()
+                .sorted(Comparator.comparing(Produto::getPreco))
+                .map(Produto::getNome)
+                .forEach(System.out::println);
+
+        List<Integer> nums4 = Arrays.asList(10, 50, 30, 70, 20);
+
+        System.out.println("\n15. Top 3 maiores:");
+        nums4.stream()
+            .sorted((a, b) -> b - a)
+            .limit(3)
+            .forEach(System.out::println);
     }
 }
