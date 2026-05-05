@@ -19,9 +19,10 @@ public class Main {
                 .reduce(0, (acc, n) -> acc + 1);
         System.out.println(count);
 
-        List<Integer> lista4 = Arrays.asList(1,2,3,4,5);
-        int soma4 = lista4.stream().reduce(0, Integer::sum);
-        System.out.println(soma4);
+        List<Integer> lista4 = Arrays.asList(10, 50, 30, 70, 20);
+        int maior = lista.stream().reduce((a, b) -> a > b ? a : b).get();
+
+        System.out.println(maior);
 
         List<Integer> lista5 = Arrays.asList(1, 2, 3, 4);
         int produto = lista5.stream()
